@@ -13,4 +13,11 @@ export default class MushroomController {
     const mushrooms = await Mushroom.find();
     return { mushrooms };
   }
+
+  @Get("/poisonous/")
+  async getPoisones() {
+    const poison = "POISONOUS";
+    const poisones = await Mushroom.find({ where: { edible: poison } });
+    return { poisones };
+  }
 }
